@@ -1,0 +1,41 @@
+﻿@model IEnumerable<MoneyBlog.Models.Accounttransaction>
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="row">
+    <div id="verticalNavigation" class="col-3">
+        <div class="card shadow">
+            <div class="card-header">
+                Actions
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled">
+                    <li>Action 1</li>
+                    <li>Action 2</li>
+                    <li>Action 3</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="mainContent" class="col-9">
+        <div class="card shadow">
+            <div class="card-header">
+                Accounts
+            </div>
+            <div class="card-body">
+                @foreach (MoneyBlog.Models.Accounttransaction transaction in Model)
+                {
+                <div>
+                    <span style="float:right;"> $@transaction.Amount </span>
+                    <span class="font-weight-bold"> @transaction.Recipient <br /> <small> @transaction.Time </small></span>
+                    <hr />
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
